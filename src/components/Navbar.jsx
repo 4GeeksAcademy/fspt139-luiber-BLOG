@@ -5,22 +5,22 @@ export const Navbar = () => {
 	const { store, dispatch } = useGlobalReducer();
 
 	return (
-		<nav className="navbar navbar-light bg-light mb-3 px-5">
+		<nav className="navbar navbar-light bg-black ">
 			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1 fw-bold">Rick and Morty DataBank</span>
-				</Link>
+				<p>
+					<span className="fw-bold text-white">Rick and Morty</span>
+				</p>
 
 				<div className="ml-auto">
 					<div className="dropdown">
 						<button
-							className="btn btn-primary dropdown-toggle d-flex align-items-center gap-2"
+							className="btn btn-secondary dropdown-toggle d-flex align-items-center gap-2"
 							type="button"
 							id="dropdownMenuButton"
 							data-bs-toggle="dropdown"
 							aria-expanded="false"
 						>
-							Favorites <span className="badge bg-secondary">{store.favorites.length}</span>
+							Favorites <span className="badge bg-black">{store.favorites.length}</span>
 						</button>
 
 						<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">

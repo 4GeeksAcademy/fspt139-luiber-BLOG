@@ -30,14 +30,13 @@ export const Details = () => {
         <div className="col-md-6 d-flex flex-column justify-content-center text-center">
           <h1>{details.name}</h1>
           <p className="lead mt-3">
-            Aquí puedes consultar los datos detallados obtenidos en tiempo real desde la Rick and Morty API.
+            Datos detallados de cada personaje, pero la API no muestra mas detalles. 
           </p>
         </div>
       </div>
 
       <hr className="text-danger my-4" />
 
-      {/* Fila inferior con detalles específicos */}
       <div className="row text-danger text-center fw-bold">
         {type === "character" && (
           <>

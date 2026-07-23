@@ -4,7 +4,6 @@ import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 export const Card = ({ item, type }) => {
   const { store, dispatch } = useGlobalReducer();
 
-  // Comprobar si este elemento ya está guardado en Favoritos
   const isFavorite = store.favorites.some((fav) => fav.id === item.id && fav.type === type);
 
   const handleFavorite = () => {
@@ -21,18 +20,16 @@ export const Card = ({ item, type }) => {
     }
   };
 
-  // La API de Rick and Morty nos da imagen para 'character', 
-  // pero para 'location' y 'episode' podemos usar un placeholder
   const imageUrl = item.image || "https://picsum.photos/400/200";
 
   return (
-    <div className="card my-2 mx-2" style={{ minWidth: "18rem", maxWidth: "18rem" }}>
+    <div className="card my-2 mx-2 bg-black text-white" style={{ minWidth: "18rem", maxWidth: "18rem" }}>
       <img src={imageUrl} className="card-img-top" alt={item.name} style={{ height: "200px", objectFit: "cover" }} />
       <div className="card-body d-flex flex-column justify-content-between">
         <h5 className="card-title">{item.name}</h5>
         
-        {/* Renderizado condicional según el tipo de datos */}
-        <div className="card-text mb-3">
+
+        <div className="card-text mb-3 text-secondary">
           {type === "character" && (
             <>
               <p className="mb-1"><strong>Status:</strong> {item.status}</p>
@@ -59,7 +56,7 @@ export const Card = ({ item, type }) => {
             Learn more!
           </Link>
           <button 
-            className={`btn ${isFavorite ? "btn-warning" : "btn-outline-warning"}`}
+            className={`btn ${isFavorite ? "btn-danger" : "btn-outline-danger"}`}
             onClick={handleFavorite}
           >
             ♥

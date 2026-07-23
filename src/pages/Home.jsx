@@ -7,7 +7,6 @@ export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer()
 	useEffect(() => {
-		// 1. Fetch Personajes
 		fetch("https://rickandmortyapi.com/api/character")
 			.then((response) => response.json())
 			.then((data) => {
@@ -18,7 +17,6 @@ export const Home = () => {
 			})
 			.catch((error) => console.error("Error en personajes:", error));
 
-		// 2. Fetch Ubicaciones
 		fetch("https://rickandmortyapi.com/api/location")
 			.then((response) => response.json())
 			.then((data) => {
@@ -29,7 +27,6 @@ export const Home = () => {
 			})
 			.catch((error) => console.error("Error en ubicaciones:", error));
 
-		// 3. Fetch Episodios
 		fetch("https://rickandmortyapi.com/api/episode")
 			.then((response) => response.json())
 			.then((data) => {
@@ -43,8 +40,7 @@ export const Home = () => {
 
 	return (
 		<div className="container mt-4">
-			{/* Seccion 1: Personajes */}
-			<h2 className="text-danger mb-3">Characters</h2>
+			<h2 className="text-primary mb-3">Characters</h2>
 			<div className="d-flex flex-row flex-nowrap overflow-auto mb-5 pb-2">
 				{store.characters && store.characters.length > 0 ? (
 					store.characters.map((character) => (
@@ -55,8 +51,7 @@ export const Home = () => {
 				)}
 			</div>
 
-			{/* Seccion 2: Ubicaciones */}
-			<h2 className="text-danger mb-3">Locations</h2>
+			<h2 className="text-primary mb-3">Locations</h2>
 			<div className="d-flex flex-row flex-nowrap overflow-auto mb-5 pb-2">
 				{store.locations && store.locations.length > 0 ? (
 					store.locations.map((location) => (
@@ -67,8 +62,7 @@ export const Home = () => {
 				)}
 			</div>
 
-			{/* Seccion 3: Episodios */}
-			<h2 className="text-danger mb-3">Episodes</h2>
+			<h2 className="text-primary mb-3">Episodes</h2>
 			<div className="d-flex flex-row flex-nowrap overflow-auto mb-5 pb-2">
 				{store.episodes && store.episodes.length > 0 ? (
 					store.episodes.map((episode) => (
